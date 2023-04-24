@@ -1,0 +1,22 @@
+{
+    "rcgvBLGvx0QSwc|^UrSD": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAADgAAAAAADg7u4OIAAAAODu7g4CAAAA4AAAIGBwZmbg7u7ud3c2MeHu7u53dzYz4e7u7gAANjHh7u7ud3dmZuDu7u53dwAA4gBgAABwACDg7u4OAAAAAuDu7g4AAAAGBgbgAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "subotai"
+    },
+    "image1": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAADAAAAAAADAzMwMAAAAAMDMzAwAAAAAwAwAAAADg7j4zM+N3d+4+UzMz43d37n4zMTPjBwAAPjMxM+MHAAB+UzMz43d37gAwMzPjd3fuADADAAAAAOAAMDMzAwAAAAAwMzMDAAAAAAAAMAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "conan0"
+    },
+    "/OcGFG:0cFh7)bX*11y{": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAADAAAAcAADAzMwNwAAAAMDMzAwcAAAAwAwBwAADg7j4zM+N3d+4+UzMz43d37n4zMTPjBwAAPjMxM+MHAAB+UzMz43d37gAwMzPjd3fuADYDAAAAAOBgMDMzAwAAAAYwMzMDAAAAAAAAMAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "conan"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
