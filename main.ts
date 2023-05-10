@@ -5,23 +5,36 @@ namespace SpriteKind {
     export const conansword = SpriteKind.create()
     export const protection = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.conan, SpriteKind.conansword, function (sprite, otherSprite) {
-    if (true) {
-        sprites.destroy(Conan1)
-    }
-})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     controller.moveSprite(Conan1, 0, -47)
 })
-sprites.onDestroyed(SpriteKind.conan, function (sprite) {
-    mySprite = sprites.create(assets.image`conan`, SpriteKind.Player)
+sprites.onOverlap(SpriteKind.conan, SpriteKind.Food, function (sprite, otherSprite) {
+	
 })
-let mySprite: Sprite = null
+sprites.onDestroyed(SpriteKind.conan, function (sprite) {
+    if (true) {
+        Conan2 = sprites.create(assets.image`conan`, SpriteKind.Player)
+        tiles.placeOnRandomTile(Conan2, assets.tile`myTile3`)
+    }
+    controller.moveSprite(Conan2, 100, 23)
+    scene.cameraFollowSprite(Conan2)
+    Conan2.setStayInScreen(true)
+})
+info.onLifeZero(function () {
+    game.gameOver(false)
+})
+scene.onOverlapTile(SpriteKind.conan, assets.tile`myTile2`, function (sprite, location) {
+    sprites.destroy(Conan1)
+    tiles.setTileAt(tiles.getTileLocation(0, 0), assets.tile`transparency16`)
+})
+scene.onOverlapTile(SpriteKind.conan, assets.tile`myTile0`, function (sprite, location) {
+    info.changeLifeBy(-1)
+})
+let Conan2: Sprite = null
 let Conan1: Sprite = null
-scene.setBackgroundColor(0)
+scene.setBackgroundColor(1)
 scene.cameraFollowSprite(Conan1)
 tiles.setCurrentTilemap(tilemap`level`)
-tiles.placeOnRandomTile(mySprite, assets.tile`myTile1`)
 Conan1 = sprites.create(assets.image`conan0`, SpriteKind.conan)
 let Valeria1 = sprites.create(img`
     . . . . . 5 5 5 5 5 . . . . . . 
@@ -42,6 +55,48 @@ let Valeria1 = sprites.create(img`
     . . . . f f f . f f f . . . . . 
     `, SpriteKind.Valeria)
 let subotai1 = sprites.create(assets.image`subotai`, SpriteKind.subotai)
-Valeria1.follow(Conan1)
-subotai1.follow(Conan1)
-controller.moveSprite(Conan1, 100, 100)
+Valeria1.follow(Conan1, 0.5)
+subotai1.follow(Conan1, 0.5)
+scene.cameraFollowSprite(Conan1)
+tiles.placeOnRandomTile(subotai1, assets.tile`myTile1`)
+tiles.placeOnRandomTile(Valeria1, assets.tile`myTile1`)
+tiles.placeOnRandomTile(Conan1, assets.tile`myTile1`)
+controller.moveSprite(Conan1, 50, 23)
+let sword = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . 9 . . . . . . . 
+    . . . . . . . . 9 . . . . . . . 
+    . . . . . . . . 9 . . . . . . . 
+    . . . . . . . . 9 . . . . . . . 
+    . . . . . . . . 9 . . . . . . . 
+    . . . . . . . . 9 . . . . . . . 
+    . . . . . . . 6 6 6 . . . . . . 
+    . . . . . . . . 6 . . . . . . . 
+    . . . . . . . . 6 . . . . . . . 
+    `, SpriteKind.Food)
+Conan1.setStayInScreen(true)
+let thulsa_doom = sprites.create(img`
+    . . . . . 6 6 6 6 6 . . . . . . 
+    . . . . . 6 e e e 6 . . . . . . 
+    . 9 . . . 6 5 e 5 6 . . . . . . 
+    . 9 . . . 6 e e e 6 . . . . . . 
+    . 9 . . . 6 6 6 6 6 . . . . . . 
+    . 9 . . . . 6 6 6 . . . . . . . 
+    . 9 . e e 6 6 2 6 6 e e . . . . 
+    . 9 . e e 6 6 6 6 6 e e . . . . 
+    . 9 . e e 6 6 6 6 6 e e . . . . 
+    . 9 e e e 6 6 6 6 6 e e e . . . 
+    . 6 . e e 6 6 6 6 6 e e . . . . 
+    . 6 . . . 6 6 6 6 6 . . . . . . 
+    . 6 . . . e e e e e . . . . . . 
+    . 6 . . . e e . e e . . . . . . 
+    . 6 . . . e e . e e . . . . . . 
+    . 6 . . e e e . e e e . . . . . 
+    `, SpriteKind.Enemy)
+tiles.placeOnRandomTile(thulsa_doom, assets.tile`myTile4`)
